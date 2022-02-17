@@ -1,12 +1,17 @@
 import asyncio
 import nextcord
 import youtube_dl
+import os
 
 from nextcord.ext import commands
 
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+
+# from oauth2client.tools import argparser
+
 # Suppress noise about console usage from errors
 youtube_dl.utils.bug_reports_message = lambda: ''
-
 
 ytdl_format_options = {
     'format': 'bestaudio/best',
@@ -19,7 +24,7 @@ ytdl_format_options = {
     'quiet': True,
     'no_warnings': True,
     'default_search': 'auto',
-    'source_address': '0.0.0.0' # bind to ipv4 since ipv6 addresses cause issues sometimes
+    'source_address': '0.0.0.0'  # bind to ipv4 since ipv6 addresses cause issues sometimes
 }
 
 ffmpeg_options = {
@@ -48,13 +53,59 @@ class YTDLSource(nextcord.PCMVolumeTransformer):
             data = data['entries'][0]
 
         filename = data['url'] if stream else ytdl.prepare_filename(data)
-        return cls(nextcord.FFmpegPCMAudio(filename, **ffmpeg_options), data=data)
+        return cls(nextcord.FFmpegPCMAudio(filename,
+                                           executable=os.getenv('DIR_FFMPEG'),
+                                           **ffmpeg_options), data=data)
+
+
+async def youtube_search(query):
+    api_key = os.getenv('YOUTUBE_API')
+    youtube_api_service_name = "youtube"
+    youtube_api_version = "v3"
+
+    youtube = build(youtube_api_service_name, youtube_api_version,
+                    developerKey=api_key)
+
+    # Call the search.list method to retrieve results matching the specified
+    # query term.
+    search_response = youtube.search().list(
+        q=query,
+        order="relevance",
+        part="id,snippet",  # id는 video_id만 response
+        maxResults=10
+    ).execute()
+
+    # videos = []
+    # channels = []
+    # playlists = []
+
+    for search_result in search_response.get("items", []):
+        if search_result["id"]["kind"] == "youtube#video":
+            return search_result["id"]["videoId"]
+
+    # # Add each result to the appropriate list, and then display the lists of
+    # # matching videos, channels, and playlists.
+    # for search_result in search_response.get("items", []):
+    #     if search_result["id"]["kind"] == "youtube#video":
+    #         videos.append("%s (%s)" % (search_result["snippet"]["title"],
+    #                                    search_result["id"]["videoId"]))
+    #     elif search_result["id"]["kind"] == "youtube#channel":
+    #         channels.append("%s (%s)" % (search_result["snippet"]["title"],
+    #                                      search_result["id"]["channelId"]))
+    #     elif search_result["id"]["kind"] == "youtube#playlist":
+    #         playlists.append("%s (%s)" % (search_result["snippet"]["title"],
+    #                                       search_result["id"]["playlistId"]))
+    #
+    # print("Videos:\n", "\n".join(videos), "\n")
+    # print("Channels:\n", "\n".join(channels), "\n")
+    # print("Playlists:\n", "\n".join(playlists), "\n")
 
 
 class Music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    # Commands
     @commands.command()
     async def join(self, ctx, *, channel: nextcord.VoiceChannel):
         """채널명을 입력하여 봇을 입장시킴"""
@@ -64,14 +115,14 @@ class Music(commands.Cog):
 
         await channel.connect()
 
-    @commands.command()
-    async def play(self, ctx, *, query):
-        """Plays a file from the local filesystem"""
-
-        source = nextcord.PCMVolumeTransformer(nextcord.FFmpegPCMAudio(query))
-        ctx.voice_client.play(source, after=lambda e: print(f'Player error: {e}') if e else None)
-
-        await ctx.send(f'Now playing: {query}')
+    # @commands.command()
+    # async def play(self, ctx, *, query):
+    #     """Plays a file from the local filesystem"""
+    #
+    #     source = nextcord.PCMVolumeTransformer(nextcord.FFmpegPCMAudio(query))
+    #     ctx.voice_client.play(source, after=lambda e: print(f'Player error: {e}') if e else None)
+    #
+    #     await ctx.send(f'Now playing: {query}')
 
     @commands.command()
     async def yt(self, ctx, *, url):
@@ -103,7 +154,30 @@ class Music(commands.Cog):
         ctx.voice_client.source.volume = volume / 100
         await ctx.send(f"Changed volume to {volume}%")
 
-    @commands.command()
+    @commands.command(aliases=['p', ])
+    async def play(self, ctx, *, query):
+        """검색어를 입력 받아, 유튜브에서 가장 관련 있는 동영상 음원 재생"""
+
+        try:
+            id = await youtube_search(query)
+
+            async with ctx.typing():
+                url = 'https://www.youtube.com/watch?v='
+                player = await YTDLSource.from_url(url + id, loop=self.bot.loop, stream=True)
+                ctx.voice_client.play(player, after=lambda e: print(f'Player error: {e}') if e else None)
+
+            await ctx.send(f'Now playing: {player.title}')
+
+        except HttpError as e:
+            await ctx.send(f'An Http Error {e.resp.statue} occurred:{e.content}')
+
+    # @commands.command()
+    # async def pause(self, ctx):
+    #     """Pause the bot from voice"""
+    #
+    #     await ctx.voice_client.
+
+    @commands.command(aliases=['s', ])
     async def stop(self, ctx):
         """Stops and disconnects the bot from voice"""
 

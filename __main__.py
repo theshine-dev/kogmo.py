@@ -7,6 +7,7 @@ import logging
 
 from dotenv import load_dotenv
 
+# loading the .env file
 load_dotenv()
 
 # logging
@@ -17,9 +18,9 @@ handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 
 # the prefix is not used in this example
-bot = commands.Bot(command_prefix='~')
+bot = commands.Bot(command_prefix=os.getenv('COMMAND_PREFIX'))
 
-# Load all cogs existing in dir 'cog'
+# Load all cogs existing in dir 'cog/'
 for filename in listdir('cog'):
     if filename.endswith('.py'):
         bot.load_extension(f'cog.{filename[:-3]}')
@@ -33,6 +34,7 @@ async def on_ready():
     print('------')
 
 
+# Default Error Processing
 @bot.event
 async def on_command_error(ctx, error):
     embed = nextcord.Embed(title="Error occur!")
