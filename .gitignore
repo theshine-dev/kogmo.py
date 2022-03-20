@@ -1,4 +1,6 @@
 .env
+nextcord.log
+whiteboard.py
 
 ffmpeg/
 venv/
