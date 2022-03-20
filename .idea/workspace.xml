@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c81fde77-8cfd-4dfa-922b-073de62ded06" name="Changes" comment="initial">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="c81fde77-8cfd-4dfa-922b-073de62ded06" name="Changes" comment="add requirements.txt">
+      <change afterPath="$PROJECT_DIR$/cog/info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cog/ping_cog.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/ping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cog/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cog/youtube_cog.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/youtube.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextcord.log" beforeDir="false" afterPath="$PROJECT_DIR$/nextcord.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +34,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="08eed5f9-2d4c-4ad6-9f16-c81c6b1c1a13" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -52,22 +55,23 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Shadow\Desktop\kogmo.py" />
       <recent name="C:\Users\Shadow\Desktop\kogmo.py\cog" />
     </key>
   </component>
   <component name="RunManager" selected="Python.__main__">
     <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="kogmo.py" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Shadow\Desktop\kogmo.py\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\kimdo\Desktop\kogmo.py\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/__main__.py" />
       <option name="PARAMETERS" value="" />
@@ -123,7 +127,19 @@
       <workItem from="1645092053761" duration="8991000" />
       <workItem from="1645103538572" duration="1046000" />
       <workItem from="1645104712830" duration="59000" />
-      <workItem from="1645104781299" duration="5369000" />
+      <workItem from="1645104781299" duration="10232000" />
+      <workItem from="1645261464796" duration="2761000" />
+      <workItem from="1645269121209" duration="1825000" />
+      <workItem from="1645360955954" duration="603000" />
+      <workItem from="1645512082105" duration="4407000" />
+      <workItem from="1645633735447" duration="415000" />
+      <workItem from="1646919023759" duration="642000" />
+      <workItem from="1647154521415" duration="363000" />
+      <workItem from="1647157255035" duration="2338000" />
+      <workItem from="1647161619726" duration="47000" />
+      <workItem from="1647161675456" duration="123000" />
+      <workItem from="1647161832867" duration="29000" />
+      <workItem from="1647761040409" duration="460000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1645090428905</created>
@@ -160,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645114104525</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add requirements.txt">
+      <created>1645114789827</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1645114789827</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,10 +204,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Changes" />
     <MESSAGE value="initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial" />
+    <MESSAGE value="add requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="add requirements.txt" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/__main___py$__main__.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1645108665268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/__main___py$__main__.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1647161752219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kogmo_py$main.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1645025431765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
