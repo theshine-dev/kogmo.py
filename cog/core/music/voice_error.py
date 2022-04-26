@@ -1,0 +1,3 @@
+
+class VoiceError(Exception):
+    pass

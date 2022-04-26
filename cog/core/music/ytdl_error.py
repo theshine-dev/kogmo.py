@@ -1,0 +1,3 @@
+
+class YTDLError(Exception):
+    pass

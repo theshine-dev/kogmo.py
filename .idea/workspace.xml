@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c81fde77-8cfd-4dfa-922b-073de62ded06" name="Changes" comment="change .gitignore">
-      <change afterPath="$PROJECT_DIR$/cog/core/youtube.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/education/dice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/education/edu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/education/meal.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/music.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/tmp/youtube.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ffmpeg.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c81fde77-8cfd-4dfa-922b-073de62ded06" name="Changes" comment="music -&gt; stop 기능 버그 수정">
+      <change afterPath="$PROJECT_DIR$/cog/core/music/song.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cog/core/music/song_queue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cog/core/music/voice_error.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cog/core/music/voice_state.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cog/core/music/ytdl_error.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cog/core/music/ytdl_source.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cog/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cog/ping.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/ping.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cog/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cog/youtube.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cog/core/youtube.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cog/music.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/music.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nextcord.log" beforeDir="false" afterPath="$PROJECT_DIR$/nextcord.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,15 +53,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kimdo\Desktop\kogmo.py" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kimdo\Desktop\kogmo.py\cog\education" />
       <recent name="C:\Users\kimdo\Desktop\kogmo.py\cog\tmp" />
+      <recent name="C:\Users\kimdo\Desktop\kogmo.py\cog\education" />
       <recent name="C:\Users\kimdo\Desktop\kogmo.py\trash" />
       <recent name="C:\Users\kimdo\Desktop\kogmo.py" />
       <recent name="C:\Users\Shadow\Desktop\kogmo.py" />
@@ -243,7 +238,10 @@
       <workItem from="1650450604619" duration="61000" />
       <workItem from="1650454668237" duration="5348000" />
       <workItem from="1650598428671" duration="70000" />
-      <workItem from="1650926900246" duration="4086000" />
+      <workItem from="1650926900246" duration="9379000" />
+      <workItem from="1650964749692" duration="6082000" />
+      <workItem from="1650980145971" duration="37000" />
+      <workItem from="1650980598582" duration="1480000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1645090428905</created>
@@ -301,7 +299,28 @@
       <option name="project" value="LOCAL" />
       <updated>1647771807746</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="유튜브 코드 수정">
+      <created>1650931205439</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1650931205439</updated>
+    </task>
+    <task id="LOCAL-00010" summary="music -&gt; stop 기능 버그 수정">
+      <created>1650935818131</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1650935818131</updated>
+    </task>
+    <task id="LOCAL-00011" summary="music -&gt; stop 기능 버그 수정">
+      <created>1650935831401</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1650935831401</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,10 +343,12 @@
     <MESSAGE value="add requirements.txt" />
     <MESSAGE value="initial" />
     <MESSAGE value="change .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="change .gitignore" />
+    <MESSAGE value="유튜브 코드 수정" />
+    <MESSAGE value="music -&gt; stop 기능 버그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="music -&gt; stop 기능 버그 수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/__main___py$__main__.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1650930777750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/__main___py$__main__.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1650981912944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/__main___py$test.coverage" NAME="test 커버리지 결과" MODIFIED="1649854235471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cog" />
     <SUITE FILE_PATH="coverage/__main___py$edu.coverage" NAME="edu 커버리지 결과" MODIFIED="1650357558662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cog" />
     <SUITE FILE_PATH="coverage/kogmo_py$main.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1645025431765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
