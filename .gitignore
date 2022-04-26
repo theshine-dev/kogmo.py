@@ -1,7 +1,10 @@
 .env
 nextcord.log
 whiteboard.py
+ffmpeg.exe
 
 ffmpeg/
 venv/
 trash/
+cog/education/
+cog/tmp/
