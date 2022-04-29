@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c81fde77-8cfd-4dfa-922b-073de62ded06" name="Changes" comment="music -&gt; stop 기능 버그 수정">
-      <change afterPath="$PROJECT_DIR$/cog/core/music/song.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/core/music/song_queue.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/core/music/voice_error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/core/music/voice_state.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/core/music/ytdl_error.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cog/core/music/ytdl_source.py" afterDir="false" />
+    <list default="true" id="c81fde77-8cfd-4dfa-922b-073de62ded06" name="Changes" comment="music -&gt; class 분리, aliase 추가, stop 기능 &amp; now 기능 버그 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cog/core/youtube.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cog/music.py" beforeDir="false" afterPath="$PROJECT_DIR$/cog/music.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nextcord.log" beforeDir="false" afterPath="$PROJECT_DIR$/nextcord.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,15 +170,39 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="voice_state" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="kogmo.py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cog/core/music" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cog/core/music/voice_state.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.__main__" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.edu" />
       <item itemvalue="Python.info" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.voice_state" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.voice_state" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.info" />
         <item itemvalue="Python.edu" />
@@ -241,7 +257,9 @@
       <workItem from="1650926900246" duration="9379000" />
       <workItem from="1650964749692" duration="6082000" />
       <workItem from="1650980145971" duration="37000" />
-      <workItem from="1650980598582" duration="1480000" />
+      <workItem from="1650980598582" duration="1769000" />
+      <workItem from="1651145446150" duration="6000" />
+      <workItem from="1651235779704" duration="1828000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1645090428905</created>
@@ -320,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650935831401</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="music -&gt; class 분리, aliase 추가, stop 기능 &amp; now 기능 버그 수정">
+      <created>1650982117095</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1650982117095</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,10 +370,12 @@
     <MESSAGE value="change .gitignore" />
     <MESSAGE value="유튜브 코드 수정" />
     <MESSAGE value="music -&gt; stop 기능 버그 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="music -&gt; stop 기능 버그 수정" />
+    <MESSAGE value="music -&gt; class 분리, aliase 추가, stop 기능 &amp; now 기능 버그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="music -&gt; class 분리, aliase 추가, stop 기능 &amp; now 기능 버그 수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/__main___py$__main__.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1650981912944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/__main___py$__main__.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1651237370723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/__main___py$voice_state.coverage" NAME="voice_state 커버리지 결과" MODIFIED="1651237366659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cog/core/music" />
     <SUITE FILE_PATH="coverage/__main___py$test.coverage" NAME="test 커버리지 결과" MODIFIED="1649854235471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cog" />
     <SUITE FILE_PATH="coverage/__main___py$edu.coverage" NAME="edu 커버리지 결과" MODIFIED="1650357558662" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cog" />
     <SUITE FILE_PATH="coverage/kogmo_py$main.coverage" NAME="__main__ 커버리지 결과" MODIFIED="1645025431765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
