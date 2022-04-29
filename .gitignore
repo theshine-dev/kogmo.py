@@ -2,6 +2,7 @@
 nextcord.log
 whiteboard.py
 ffmpeg.exe
+nohup.out
 
 ffmpeg/
 venv/
